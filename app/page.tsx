@@ -77,7 +77,7 @@ export default function LifeCostCalculator() {
     const months = weeks / 4.33
     const years = months / 12
     if (years >= 1) return `${years.toFixed(1)} ano${years >= 2 ? "s" : ""}`
-    if (months >= 1) return `${months.toFixed(1)} mês${months >= 2 ? "es" : ""}`
+    if (months >= 1) return `${months.toFixed(1)} mes${months >= 2 ? "es" : ""}`
     if (weeks >= 1) return `${weeks.toFixed(1)} semana${weeks >= 2 ? "s" : ""}`
     if (days >= 1) return `${days.toFixed(1)} dia${days >= 2 ? "s" : ""}`
     return formatTimeWithMinutes(hours)
@@ -197,9 +197,7 @@ export default function LifeCostCalculator() {
                       Verificação da Realidade
                     </div>
                     <p className="text-sm text-slate-300">
-                      Esta compra representa {results.years.toFixed(1)} ano{results.years >= 2 ? "s" : ""} da sua vida
-                      profissional. Vale a pena tanto tempo da sua vida na Terra?
-                    </p>
+                      Esta compra representa {results.years.toFixed(1)} ano{results.years >= 2 ? "s" : ""} do seu salário mensal.</p>
                   </div>
                 )}
               </div>
@@ -223,7 +221,7 @@ export default function LifeCostCalculator() {
                   </div>
                   <div className="text-sm text-slate-400 mb-3">Com salário de {examplesWage}€</div>
                   <div className="text-2xl font-bold text-yellow-400">{getExampleResult(example.cost, examplesWage)}</div>
-                  <div className="text-sm text-slate-400 mt-1">da sua vida</div>
+                  <div className="text-sm text-slate-400 mt-1">da sua vida a trabalhar</div>
                 </CardContent>
               </Card>
             ))}
