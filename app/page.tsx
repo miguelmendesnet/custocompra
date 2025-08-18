@@ -84,7 +84,7 @@ export default function LifeCostCalculator() {
             Quanto Custa <span className="text-blue-400">Realmente</span>?
           </h1>
           <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Cada compra custa mais do que dinheiro—custa a sua vida. Calcule quantas horas, dias ou anos de trabalho
+            Cada compra custa mais do que dinheiro, custa a sua vida. Calcule quantas horas, dias ou anos de trabalho
             qualquer item realmente requer.
           </p>
         </div>
@@ -94,10 +94,10 @@ export default function LifeCostCalculator() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 font-serif text-2xl text-white">
               <Calculator className="h-6 w-6 text-blue-400" />
-              Calculadora do Custo de Vida
+              Calculadora
             </CardTitle>
             <CardDescription className="text-slate-300">
-              Introduza o seu salário mensal e o custo de algo que quer comprar
+              Introduza o seu salário mensal e o custo de algo que quer comprar.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
@@ -118,7 +118,7 @@ export default function LifeCostCalculator() {
               <div className="space-y-2">
                 <Label htmlFor="item-cost" className="flex items-center gap-2 text-slate-200">
                   <Clock className="h-4 w-4" />
-                  Custo do Item
+                  O Custo da Sua Compra
                 </Label>
                 <Input
                   id="item-cost"
@@ -136,7 +136,7 @@ export default function LifeCostCalculator() {
               className="w-full text-lg py-6 bg-blue-600 hover:bg-blue-700 text-white"
               disabled={!monthlyWage || !itemCost}
             >
-              Calcular Custo de Vida
+              Calcular
             </Button>
 
             {results && (
@@ -192,7 +192,7 @@ export default function LifeCostCalculator() {
 
         {/* Examples Section */}
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-serif text-3xl font-bold text-center mb-8 text-white">Exemplos do Mundo Real</h2>
+          <h2 className="font-serif text-3xl font-bold text-center mb-8 text-white">Exemplos</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {examples.map((example, index) => (
               <Card
@@ -213,14 +213,7 @@ export default function LifeCostCalculator() {
           </div>
         </div>
 
-        {/* Quote Section */}
-        <div className="max-w-3xl mx-auto mt-16 text-center">
-          <blockquote className="text-xl md:text-2xl italic text-slate-300 leading-relaxed">
-            "De repente percebi que uma única refeição me custava duas horas da minha vida, a vinte dólares por hora. E
-            as coisas grandes? Esqueça. Um carro de cem mil dólares teria-me levado dez anos a poupar cada cêntimo."
-          </blockquote>
-          <div className="mt-6 text-sm text-slate-400">O tempo é a única moeda que realmente importa.</div>
-        </div>
+        {/* Removed quote section per request */}
       </div>
     </div>
   )

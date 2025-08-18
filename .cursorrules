@@ -1,0 +1,6 @@
+# Project rules
+- Framework: Next.js (app router), TypeScript.
+- Styling: Tailwind + shadcn/ui; keep class names semantic.
+- Accessibility: include aria-* and keyboard navigation.
+- Structure: extract UI into /components; keep files <200 lines.
+- Write full file outputs with correct relative imports.
