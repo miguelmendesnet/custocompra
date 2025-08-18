@@ -77,7 +77,7 @@ export default function LifeCostCalculator() {
     const months = weeks / 4.33
     const years = months / 12
     if (years >= 1) return `${years.toFixed(1)} ano${years >= 2 ? "s" : ""}`
-    if (months >= 1) return `${months.toFixed(1)} mes${months >= 2 ? "es" : ""}`
+    if (months >= 1) return `${months.toFixed(1)} mês${months >= 2 ? "es" : ""}`
     if (weeks >= 1) return `${weeks.toFixed(1)} semana${weeks >= 2 ? "s" : ""}`
     if (days >= 1) return `${days.toFixed(1)} dia${days >= 2 ? "s" : ""}`
     return formatTimeWithMinutes(hours)
