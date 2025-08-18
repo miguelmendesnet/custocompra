@@ -17,6 +17,7 @@ export default function LifeCostCalculator() {
     months: number
     years: number
   } | null>(null)
+  const [examplesWage, setExamplesWage] = useState<number>(1200)
 
   const calculateLifeCost = () => {
     const wage = Number.parseFloat(monthlyWage)
@@ -32,6 +33,7 @@ export default function LifeCostCalculator() {
     const years = months / 12
 
     setResults({ hours, days, weeks, months, years })
+    setExamplesWage(wage)
   }
 
   const formatTimeWithMinutes = (totalHours: number) => {
@@ -66,11 +68,26 @@ export default function LifeCostCalculator() {
     }
   }
 
-  const examples = [
-    { item: "Café", wage: 1200, cost: 1, result: "8 minutos" },
-    { item: "Carro", wage: 1200, cost: 20000, result: "22.2 meses" },
-    { item: "Almoço Fora", wage: 1200, cost: 25, result: "3.3 horas" },
-    { item: "Casa", wage: 1200, cost: 200000, result: "18.5 anos" },
+  const getExampleResult = (cost: number, wage: number) => {
+    if (wage <= 0 || cost <= 0) return ""
+    const hourlyWage = wage / 160
+    const hours = cost / hourlyWage
+    const days = hours / 8
+    const weeks = days / 5
+    const months = weeks / 4.33
+    const years = months / 12
+    if (years >= 1) return `${years.toFixed(1)} ano${years >= 2 ? "s" : ""}`
+    if (months >= 1) return `${months.toFixed(1)} mês${months >= 2 ? "es" : ""}`
+    if (weeks >= 1) return `${weeks.toFixed(1)} semana${weeks >= 2 ? "s" : ""}`
+    if (days >= 1) return `${days.toFixed(1)} dia${days >= 2 ? "s" : ""}`
+    return formatTimeWithMinutes(hours)
+  }
+
+  const baseExamples = [
+    { item: "Café", cost: 1 },
+    { item: "Carro", cost: 20000 },
+    { item: "Almoço Fora", cost: 25 },
+    { item: "Casa", cost: 200000 },
   ]
 
   return (
@@ -194,7 +211,7 @@ export default function LifeCostCalculator() {
         <div className="max-w-4xl mx-auto">
           <h2 className="font-serif text-3xl font-bold text-center mb-8 text-white">Exemplos</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {examples.map((example, index) => (
+            {baseExamples.map((example, index) => (
               <Card
                 key={index}
                 className="hover:shadow-lg transition-shadow bg-slate-800/50 backdrop-blur-sm border-slate-700 hover:border-slate-600"
@@ -204,8 +221,8 @@ export default function LifeCostCalculator() {
                     <h3 className="font-semibold text-lg text-white">{example.item}</h3>
                     <span className="text-blue-400 font-bold">€{example.cost.toLocaleString()}</span>
                   </div>
-                  <div className="text-sm text-slate-400 mb-3">Com salário de {example.wage}€</div>
-                  <div className="text-2xl font-bold text-yellow-400">{example.result}</div>
+                  <div className="text-sm text-slate-400 mb-3">Com salário de {examplesWage}€</div>
+                  <div className="text-2xl font-bold text-yellow-400">{getExampleResult(example.cost, examplesWage)}</div>
                   <div className="text-sm text-slate-400 mt-1">da sua vida</div>
                 </CardContent>
               </Card>
