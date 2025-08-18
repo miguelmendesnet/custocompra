@@ -18,9 +18,9 @@ const sourceSans = Source_Sans_3({
 })
 
 export const metadata: Metadata = {
-  title: "Life Cost Calculator - What Does It Really Cost?",
+  title: "Calculadora do Custo de Vida - Quanto Custa Realmente?",
   description:
-    "Calculate the true cost of purchases in hours and years of your life. Understand what your money really means.",
+    "Calcule o verdadeiro custo das suas compras em horas, dias e anos de trabalho. Perceba o que o seu dinheiro realmente significa.",
   generator: "v0.app",
 }
 
@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${sourceSans.variable}`}>
+    <html lang="pt" className={`${playfair.variable} ${sourceSans.variable}`}>
       <body className="font-sans antialiased">{children}</body>
     </html>
   )
