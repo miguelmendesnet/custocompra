@@ -91,36 +91,36 @@ export default function LifeCostCalculator() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
       <div className="container mx-auto px-4 pt-4"></div>
 
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-12">
-          <h1 className="font-serif text-4xl md:text-6xl font-bold text-white mb-6">
-            Quanto Custa <span className="text-blue-400">Realmente</span>?
+          <h1 className="font-serif text-4xl md:text-6xl font-bold text-neutral-900 mb-6">
+            Quanto Custa <span className="text-indigo-600">Realmente</span>?
           </h1>
-          <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
             Cada compra custa mais do que dinheiro, custa a sua vida. Calcule quantas horas, dias ou anos de trabalho
             qualquer item realmente requer.
           </p>
         </div>
 
         {/* Calculator Section */}
-        <Card className="max-w-2xl mx-auto mb-12 bg-slate-800/50 backdrop-blur-sm border-slate-700">
+        <Card className="max-w-2xl mx-auto mb-12 bg-white border-neutral-200">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 font-serif text-2xl text-white">
-              <Calculator className="h-6 w-6 text-blue-400" />
+            <CardTitle className="flex items-center gap-2 font-serif text-2xl text-neutral-900">
+              <Calculator className="h-6 w-6 text-indigo-600" />
               Calculadora
             </CardTitle>
-            <CardDescription className="text-slate-300">
+            <CardDescription className="text-neutral-600">
               Introduza o seu salário mensal e o custo de algo que quer comprar.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="monthly-wage" className="flex items-center gap-2 text-slate-200">
+                <Label htmlFor="monthly-wage" className="flex items-center gap-2 text-neutral-700">
                   <Euro className="h-4 w-4" />O Seu Salário Mensal
                 </Label>
                 <Input
@@ -129,11 +129,11 @@ export default function LifeCostCalculator() {
                   placeholder="1200.00"
                   value={monthlyWage}
                   onChange={(e) => setMonthlyWage(e.target.value)}
-                  className="text-lg bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400"
+                  className="text-lg bg-white border-neutral-300 text-neutral-900 placeholder:text-neutral-400"
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="item-cost" className="flex items-center gap-2 text-slate-200">
+                <Label htmlFor="item-cost" className="flex items-center gap-2 text-neutral-700">
                   <Clock className="h-4 w-4" />
                   O Custo da Sua Compra
                 </Label>
@@ -143,60 +143,60 @@ export default function LifeCostCalculator() {
                   placeholder="100.00"
                   value={itemCost}
                   onChange={(e) => setItemCost(e.target.value)}
-                  className="text-lg bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400"
+                  className="text-lg bg-white border-neutral-300 text-neutral-900 placeholder:text-neutral-400"
                 />
               </div>
             </div>
 
             <Button
               onClick={calculateLifeCost}
-              className="w-full text-lg py-6 bg-blue-600 hover:bg-blue-700 text-white"
+              className="w-full text-lg py-6 bg-indigo-600 hover:bg-indigo-700 text-white"
               disabled={!monthlyWage || !itemCost}
             >
               Calcular
             </Button>
 
             {results && (
-              <div className="mt-8 p-6 bg-slate-700/30 rounded-lg border-2 border-blue-500/30 backdrop-blur-sm">
+              <div className="mt-8 p-6 bg-indigo-50 rounded-lg border border-indigo-200">
                 <div className="text-center mb-4">
-                  <div className="text-4xl font-bold text-blue-400 mb-2">{formatTimeWithMinutes(results.hours)}</div>
-                  <p className="text-lg text-slate-300">{getImpactMessage()}</p>
+                  <div className="text-4xl font-bold text-indigo-600 mb-2">{formatTimeWithMinutes(results.hours)}</div>
+                  <p className="text-lg text-neutral-600">{getImpactMessage()}</p>
                 </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
                   {results.days >= 1 && (
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-yellow-400">{results.days.toFixed(1)}</div>
-                      <div className="text-sm text-slate-400">Dias</div>
+                      <div className="text-2xl font-bold text-neutral-900">{results.days.toFixed(1)}</div>
+                      <div className="text-sm text-neutral-500">Dias</div>
                     </div>
                   )}
                   {results.weeks >= 1 && (
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-yellow-400">{results.weeks.toFixed(1)}</div>
-                      <div className="text-sm text-slate-400">Semanas</div>
+                      <div className="text-2xl font-bold text-neutral-900">{results.weeks.toFixed(1)}</div>
+                      <div className="text-sm text-neutral-500">Semanas</div>
                     </div>
                   )}
                   {results.months >= 1 && (
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-yellow-400">{results.months.toFixed(1)}</div>
-                      <div className="text-sm text-slate-400">Meses</div>
+                      <div className="text-2xl font-bold text-neutral-900">{results.months.toFixed(1)}</div>
+                      <div className="text-sm text-neutral-500">Meses</div>
                     </div>
                   )}
                   {results.years >= 1 && (
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-blue-400">{results.years.toFixed(1)}</div>
-                      <div className="text-sm text-slate-400">Anos</div>
+                      <div className="text-2xl font-bold text-indigo-600">{results.years.toFixed(1)}</div>
+                      <div className="text-sm text-neutral-500">Anos</div>
                     </div>
                   )}
                 </div>
 
                 {results.years >= 1 && (
-                  <div className="mt-6 p-4 bg-yellow-500/10 rounded-lg border border-yellow-500/30">
-                    <div className="flex items-center gap-2 text-yellow-400 font-semibold mb-2">
+                  <div className="mt-6 p-4 bg-amber-50 rounded-lg border border-amber-200">
+                    <div className="flex items-center gap-2 text-amber-600 font-semibold mb-2">
                       <AlertTriangle className="h-5 w-5" />
                       Verificação da Realidade
                     </div>
-                    <p className="text-sm text-slate-300">
+                    <p className="text-sm text-neutral-700">
                       Esta compra representa {results.years.toFixed(1)} ano{results.years >= 2 ? "s" : ""} do seu salário mensal.</p>
                   </div>
                 )}
@@ -207,21 +207,21 @@ export default function LifeCostCalculator() {
 
         {/* Examples Section */}
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-serif text-3xl font-bold text-center mb-8 text-white">Exemplos</h2>
+          <h2 className="font-serif text-3xl font-bold text-center mb-8 text-neutral-900">Exemplos</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {baseExamples.map((example, index) => (
               <Card
                 key={index}
-                className="hover:shadow-lg transition-shadow bg-slate-800/50 backdrop-blur-sm border-slate-700 hover:border-slate-600"
+                className="hover:shadow-lg transition-shadow bg-white border-neutral-200 hover:border-neutral-300"
               >
                 <CardContent className="p-6">
                   <div className="flex justify-between items-center mb-2">
-                    <h3 className="font-semibold text-lg text-white">{example.item}</h3>
-                    <span className="text-blue-400 font-bold">€{example.cost.toLocaleString()}</span>
+                    <h3 className="font-semibold text-lg text-neutral-900">{example.item}</h3>
+                    <span className="text-indigo-600 font-bold">€{example.cost.toLocaleString()}</span>
                   </div>
-                  <div className="text-sm text-slate-400 mb-3">Com salário de {examplesWage}€</div>
-                  <div className="text-2xl font-bold text-yellow-400">{getExampleResult(example.cost, examplesWage)}</div>
-                  <div className="text-sm text-slate-400 mt-1">da sua vida a trabalhar</div>
+                  <div className="text-sm text-neutral-500 mb-3">Com salário de {examplesWage}€</div>
+                  <div className="text-2xl font-bold text-neutral-900">{getExampleResult(example.cost, examplesWage)}</div>
+                  <div className="text-sm text-neutral-500 mt-1">da sua vida a trabalhar</div>
                 </CardContent>
               </Card>
             ))}
